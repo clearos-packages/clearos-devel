@@ -1,5 +1,5 @@
 Name: clearos-devel
-Version: 6.4.1
+Version: 6.5.1
 Release: 1%{dist}
 Summary: ClearOS developer tools
 License: GPLv3
@@ -39,7 +39,6 @@ Requires: rcs
 Requires: subversion
 Requires: swig
 Requires: systemtap
-Requires: ElectricFence
 Requires: ant
 Requires: babel
 Requires: babel
@@ -58,15 +57,11 @@ Requires: gcc-objc++
 Requires: imake
 Requires: jpackage-utils
 Requires: libstdc++-docs
-Requires: mercurial
-Requires: mod_dav_svn
 Requires: nasm
 Requires: perltidy
-Requires: python-docs
 Requires: rpmdevtools
 Requires: rpmlint
 Requires: systemtap-sdt-devel
-Requires: systemtap-server
 # Other handy tools
 Requires: rsync
 # App and install test development
@@ -99,8 +94,6 @@ install -m 644 clearos-6-x86_64-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 install -m 644 clearos-6-i386-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 %endif
 
-install -m 755 clearos $RPM_BUILD_ROOT%{_bindir}
-
 %files
 %defattr(-,root,root)
 %ifarch x86_64
@@ -108,4 +101,3 @@ install -m 755 clearos $RPM_BUILD_ROOT%{_bindir}
 %else
 %{_sysconfdir}/mock/clearos-6-i386-base.cfg     
 %endif
-%{_bindir}/clearos
