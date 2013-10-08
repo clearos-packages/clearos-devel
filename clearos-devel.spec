@@ -84,7 +84,6 @@ ClearOS developer tools
 %build
 
 %install
-
 mkdir -p -m 755 $RPM_BUILD_ROOT%{_sysconfdir}/mock
 mkdir -p -m 755 $RPM_BUILD_ROOT%{_bindir}
 
@@ -93,6 +92,14 @@ install -m 644 clearos-6-x86_64-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 %else
 install -m 644 clearos-6-i386-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 %endif
+
+%post
+
+if [ ! -e /usr/bin/clearos ]; then
+    echo "#!/bin/sh" > /usr/bin/clearos
+    echo "echo \"The clearos script has been moved to app-devel! - yum install app-devel\"" >> /usr/bin/clearos
+    chmod 755 /usr/bin/clearos
+fi
 
 %files
 %defattr(-,root,root)
