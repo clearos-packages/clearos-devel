@@ -1,5 +1,5 @@
 Name: clearos-devel
-Version: 6.5.1
+Version: 7.1.0
 Release: 1%{dist}
 Summary: ClearOS developer tools
 License: GPLv3
@@ -39,41 +39,27 @@ Requires: rcs
 Requires: subversion
 Requires: swig
 Requires: systemtap
-Requires: ant
-Requires: babel
-Requires: babel
-Requires: bzr
 Requires: chrpath
 Requires: cmake
-Requires: compat-gcc-34
-Requires: compat-gcc-34-c++
-Requires: compat-gcc-34-g77
-Requires: dejagnu
 Requires: expect
 Requires: gcc-gnat
-Requires: gcc-java
 Requires: gcc-objc
 Requires: gcc-objc++
-Requires: imake
-Requires: jpackage-utils
-Requires: libstdc++-docs
 Requires: nasm
-Requires: perltidy
 Requires: rpmdevtools
 Requires: rpmlint
-Requires: systemtap-sdt-devel
+Requires: rpm-sign
 # Other handy tools
 Requires: rsync
+Requires: syslinux
 # App and install test development
 Requires: clearos-base
 Requires: clearos-coding-standard
-Requires: phpdoc
 Requires: php-phpunit-PHPUnit
 Requires: php-pear-PHP-CodeSniffer
-Requires: syslinux
 # Build system
 Requires: mock
-Requires: plague-client
+# Requires: plague-client
 BuildRoot: %_tmppath/%name-%version-buildroot
 
 %description
@@ -87,11 +73,7 @@ ClearOS developer tools
 mkdir -p -m 755 $RPM_BUILD_ROOT%{_sysconfdir}/mock
 mkdir -p -m 755 $RPM_BUILD_ROOT%{_bindir}
 
-%ifarch x86_64
-install -m 644 clearos-6-x86_64-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
-%else
-install -m 644 clearos-6-i386-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
-%endif
+install -m 644 clearos-7-x86_64-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 
 %post
 
@@ -103,8 +85,4 @@ fi
 
 %files
 %defattr(-,root,root)
-%ifarch x86_64
-%{_sysconfdir}/mock/clearos-6-x86_64-base.cfg     
-%else
-%{_sysconfdir}/mock/clearos-6-i386-base.cfg     
-%endif
+%{_sysconfdir}/mock/clearos-7-x86_64-base.cfg
