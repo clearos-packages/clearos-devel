@@ -1,5 +1,5 @@
 Name: clearos-devel
-Version: 7.1.0
+Version: 7.1.1
 Release: 1%{dist}
 Summary: ClearOS developer tools
 License: GPLv3
@@ -59,7 +59,7 @@ Requires: php-phpunit-PHPUnit
 Requires: php-pear-PHP-CodeSniffer
 # Build system
 Requires: mock
-# Requires: plague-client
+Requires: plague-client
 BuildRoot: %_tmppath/%name-%version-buildroot
 
 %description
