@@ -76,12 +76,17 @@ mkdir -p -m 755 $RPM_BUILD_ROOT%{_bindir}
 install -m 644 clearos-7-x86_64-base.cfg $RPM_BUILD_ROOT%{_sysconfdir}/mock/
 
 %post
-
 if [ ! -e /usr/bin/clearos ]; then
     echo "#!/bin/sh" > /usr/bin/clearos
     echo "echo \"The clearos script has been moved to app-devel! - yum install app-devel\"" >> /usr/bin/clearos
     chmod 755 /usr/bin/clearos
 fi
+
+if [ -e /etc/mock/default.cfg ]; then
+    rm -f /etc/mock/default.cfg
+fi
+
+ln -s /etc/mock/clearos-7-x86_64-base.cfg /etc/mock/default.cfg
 
 %files
 %defattr(-,root,root)
