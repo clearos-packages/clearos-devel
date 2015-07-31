@@ -1,5 +1,5 @@
 Name: clearos-devel
-Version: 7.1.4
+Version: 7.1.5
 Release: 1%{dist}
 Summary: ClearOS developer tools
 License: GPLv3
