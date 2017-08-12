@@ -7,7 +7,6 @@ Group: ClearOS/Tools
 Source: %{name}-%{version}.tar.gz
 Vendor: ClearFoundation
 Packager: ClearFoundation
-# FIXME: make deps from EPEL optional -- we have broken repos right now.
 # "Development tools" in comps.xml
 Requires: autoconf
 Requires: automake
